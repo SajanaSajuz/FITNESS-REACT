@@ -1,0 +1,51 @@
+
+.containerr {
+    align-items: center;
+    justify-content: center;
+    margin-top: 10px;
+  }
+  
+  #imgg {
+    
+    float: left;
+  }
+  
+  .textt {
+    font-size:18px;
+    padding-left: 280px;
+    color:white;
+    float: left;
+    
+    
+  }
+  #pic{
+    position: relative;
+    left:250px;
+    
+  }
+  /* .texti{
+  
+    text-align: justify;
+    padding-left: 15px;
+  } 
+   #pict{
+    position: relative;
+    left:280px;
+    bottom:70px;
+    
+  } */
+  .cross{
+    position: relative;
+    left:100px;
+    color:white;
+  }
+  .crosst{
+    position: relative;
+    left:20px;
+    color:white;
+    
+  }
+  
+
+ 
+

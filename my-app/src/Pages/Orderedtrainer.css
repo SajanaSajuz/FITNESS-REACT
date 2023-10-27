@@ -1,0 +1,61 @@
+
+
+
+  
+ 
+  .imgd{
+    width: 25%;
+    position: relative;
+    left:85px;
+    /* object-fit: cover; */
+   
+  }
+  
+  .product-containerf {
+    border: 2px solid #716b6b;
+    width: 30rem;
+    height: 35rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-inline: 7rem;
+    margin-left: 520px;
+    margin-top: 80px;
+    background-color: aliceblue;
+  }
+  
+  .product-containerf .image {
+    width: 35rem;
+    transform: rotate(-20deg);
+    margin-left: -4rem;
+
+  }
+  
+  .product-containerf .details .cost {
+    font-size: 2rem;
+    font-weight: 600;
+    text-align: center;
+    color:black;
+    font-weight: bold;
+  }
+  
+  .product-containerf .details .titleg {
+    font-size: 1.2rem;
+    font-weight: 200;
+    position: relative;
+    top:20px;
+    text-align: center;
+    
+    
+   
+  }
+  .product-containerf .details .title1 {
+    font-size: 1.2rem;
+    font-weight: 200;
+    position: relative;
+   color: rgb(163, 165, 167);
+   text-align: center;
+   
+    
+   
+  }

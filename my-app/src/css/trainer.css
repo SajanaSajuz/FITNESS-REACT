@@ -1,0 +1,23 @@
+.headerback{
+    background-image: url('../Components/bg_1.jpg.webp');
+    background-repeat:no-repeat;
+    background-size:cover;
+    background-position:center;
+    /* background-color: aqua; */
+    position: relative;
+    height:100vh;
+    top:250px;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: 200px;
+    color: #ffffff;
+    font-weight:900;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-align: center;
+    letter-spacing:30px;
+    text-transform: uppercase;
+}
+.mainnn{
+    background-image: url('../Components/main.jpg');
+    background-repeat: no-repeat;
+}
