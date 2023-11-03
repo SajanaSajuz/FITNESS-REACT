@@ -1,6 +1,6 @@
 import React from 'react'
 import './Orderedtrainer.css'
-import Navbar from '../Components/Navbar'
+import Navbar from './Navbar'
 export default function Orderedtrainer() {
     const date= new Date()
     console.log(date);

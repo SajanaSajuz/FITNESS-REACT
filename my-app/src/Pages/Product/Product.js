@@ -17,7 +17,7 @@ export default function Product() {
    
   
 })
-
+console.log(product);
 const inputChange = (event) => {
 const { name, value } = event.target
 setProduct({ ...product, [name]: value })
@@ -57,12 +57,12 @@ if (Object.keys(formError).length == 0) {
 
   const data = new FormData()
   const filename = file.name
-  data.append("name", filename)
-  data.append("file", file)
-  data.append("Price", product.Price)
-  data.append("Description", product.Description)
-  data.append("Productname", product.Productname)
-  data.append("Image", product.Image)
+  data.append("filename",filename)
+  data.append("file",file)
+  data.append("Price",product.Price)
+  data.append("Description",product.Description)
+  data.append("Productname",product.Productname)
+  data.append("Image",product.Image)
 
 
 
@@ -71,8 +71,8 @@ if (Object.keys(formError).length == 0) {
 
 
 
-    axios.post("http://localhost:5000/admin/addproduct", data).then((response) => {
-        console.log(response.data.message);
+    axios.post("http://localhost:5000/admin/addproduct",data).then((response) => {
+        console.log(response);
         
       toast.success(response.data.message, {
         position: "top-right",

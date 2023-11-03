@@ -1,7 +1,7 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom';
-import Navbar from '../Components/Navbar';
+import Navbar from './Navbar';
 import { useDispatch, useSelector } from "react-redux";
 import { usertrainer } from '../REDUX/slices/userslices';
 import Loader from '../Components/Loader';

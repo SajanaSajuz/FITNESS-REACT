@@ -17,6 +17,12 @@ export default function Viewbookedtrainers() {
        })
       
       },[])
+      const adminreq =  ()=> {
+        axios.get(`https://crossbody-backend.onrender.com/user/bookedstatus`).then((response) => {
+          console.log(response);
+          window.location.reload();
+        });
+      }
     
   return (
     <>
@@ -40,6 +46,14 @@ export default function Viewbookedtrainers() {
             <div class="wcf-left"><span class="price">Rp500.000</span></div>
             <div class="wcf-right"><a href="#" class="buy-btn"><i class="zmdi zmdi-shopping-basket"></i></a></div>
           </div> */}
+          {item.status == 0 ? (
+                  "your booking is requested"
+                ) : item.status == 1 ?(
+                   "your booking is confirmed"
+                ):(
+                  "your booking is Rejected"
+                )
+                }
         </div>
       </div>
     </div>

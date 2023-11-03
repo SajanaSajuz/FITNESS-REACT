@@ -6,8 +6,11 @@ const trainerModel = require('../models/trainerModel');
 const productModel = require('../models/productModel');
 const userRouter = require('./userRouter');
 const logModel = require('../models/logModel');
+const multer= require('multer');
 
-const bcrypt = require('bcryptjs')
+const bcrypt = require('bcryptjs');
+const bookModel = require('../models/bookModel');
+const checkAuth = require('../../Middlewares/checkAuth');
 //to reg the trainer
 // adminRouter.post( "/regtrainer", async (req, res) => {
 //     try {
@@ -37,6 +40,81 @@ const bcrypt = require('bcryptjs')
 // }
        
 // });
+
+const storage = multer.diskStorage({
+    destination: function (req, file, cb) {
+      cb(null, '../my-app/public/Images/')
+    },
+    filename: function (req, file, cb) {
+      
+      cb(null,req.body.filename)
+    }
+  })
+  
+  const upload = multer({ storage: storage })
+  adminRouter.post('/upload',(req,res)=>{
+    return res.json("file uploaded")
+  })
+
+
+  adminRouter.get("/view-book-requests",async(req,res)=>{
+    try{
+      const bookeddata= await bookModel.aggregate([
+     {
+            '$lookup': {
+              'from': 'trainer_tbs', 
+              'localField': 'trainer_id', 
+              'foreignField': 'Login_id', 
+              'as': 'adminview'
+            }
+            
+          },
+          
+  {
+    '$lookup': {
+      'from': 'reg_tbs', 
+      'localField': 'user_id', 
+      'foreignField': 'Login_id', 
+      'as': 'adminuserview'
+    }
+  },
+          {
+            $unwind: "$adminview",
+          },
+          {
+            $unwind: "$adminuserview",
+          },
+          {
+            $group: {
+              _id: "$_id", 
+              status:{$first:"$status"},
+              TrainerName: { $first:"$adminview.TrainerName" },
+              Phone: { $first: "$adminview.Phone" },
+              Class: { $first: "$adminview.Class" },
+              Name: { $first: "$adminuserview.Name" },
+            },
+          },
+      ])
+      console.log(bookeddata);
+      if(bookeddata){
+  
+        return res.status(200).json({ success: true, error: false, message: "data needs to approved",adminview_details:bookeddata});
+      }
+      else {
+  
+        return res.status(400).json({ success: false, error: true, message: "Not yet confirmed" })
+    }
+    }
+    catch(error){
+  
+    }
+  })
+
+
+
+
+
+
 
 
 
@@ -148,7 +226,7 @@ adminRouter.get("/trainerdelete/:id", async (req, res) => {
 
 
   //to add the products
-  adminRouter.post( "/addproduct", async (req, res) => {
+  adminRouter.post( "/addproduct",upload.single("file"), async (req, res) => {
     try {
             let product = {  Productname: req.body.Productname, Price: req.body.Price, Description: req.body.Description,Image: req.body.Image}
                 const result = await productModel(product).save()

@@ -18,6 +18,9 @@ import Orderedtrainer from './Pages/Orderedtrainer';
 import Trainer_userlist from './Pages/Trainer_userlist';
 import Viewbookedtrainers from './Pages/Viewbookedtrainers';
 import Payment from './Pages/Payment';
+import Adminview from './Pages/Adminview';
+import Addtocart from './Pages/Addtocart';
+import Singleproduct from './Pages/Singleproduct';
 
 
 
@@ -43,6 +46,9 @@ function App() {
       <Route path='trainer-userlist' element={<Trainer_userlist/>}/>
       <Route path='user-trainerlist' element={<Viewbookedtrainers/>}/>
       <Route path='payment' element={<Payment/>}/>
+      <Route path='Adminview' element={<Adminview/>}/>
+      <Route path='addtocart' element={<Addtocart/>}/>
+      <Route path='productdetails/:id' element={<Singleproduct/>}/>
       
 
       

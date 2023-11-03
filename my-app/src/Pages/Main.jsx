@@ -1,5 +1,5 @@
 import React from 'react'
-import Navbar from '../Components/Navbar'
+import Navbar from './Navbar'
 import Weightlifting from '../Components/Weightlifting'
 import Classes from '../Components/Classes'
 import './Navbar.css'

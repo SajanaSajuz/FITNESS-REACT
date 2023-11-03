@@ -4,8 +4,9 @@ import '../Pages/Viewproduct.css'
 import { Link } from 'react-router-dom'
 import { userproduct } from '../REDUX/slices/productslices'
 import { useDispatch, useSelector } from 'react-redux'
+import Loader from '../Components/Loader'
 export default function Viewproduct() {
-  const {viewproduct} = useSelector((state)=>state.productuser)
+  const {viewproduct,loading} = useSelector((state)=>state.productuser)
   const dispatch =useDispatch()
     
   useEffect(()=>{
@@ -19,12 +20,13 @@ export default function Viewproduct() {
   <section>
         <div class="container">
         <div class="row g-4 py-5">
-            {viewproduct.map((item) => (
+        {loading ? <Loader/> :
+            viewproduct.map((item) => (
               <div id ="productview" class="col-md-4">
-                <Link to={`/productdetails/${item._id}`}>
+                  <Link to={`/productdetails/${item._id}`}>
                   <div class="product-single-card">
                     <div class="product-top-area">
-                      <div class="product-discount">$55.</div>
+                      <div class="product-discount">{item.Price}</div>
 
                       <div class="product-img">
                         <div class="first-view">
@@ -43,18 +45,23 @@ export default function Viewproduct() {
                         </div>
                       </div>
                       <div class="sideicons">
+                      <Link to={`/addtocart`}>
                         <button class="sideicons-btn">
                           <i class="fa-solid fa-cart-plus"></i>
                         </button>
+                        </Link>
+
+                        <Link to={`/productdetails/${item._id}`}>
                         <button class="sideicons-btn">
                           <i class="fa-solid fa-eye"></i>
                         </button>
-                        <button class="sideicons-btn">
+                        </Link>
+                        {/* <button class="sideicons-btn">
                           <i class="fa-solid fa-heart"></i>
                         </button>
                         <button class="sideicons-btn">
                           <i class="fa-solid fa-shuffle"></i>
-                        </button>
+                        </button> */}
                       </div>
                     </div>
                     <div class="product-info">
@@ -81,9 +88,10 @@ export default function Viewproduct() {
                       </div>
                     </div>
                   </div>
-                </Link>
+               </Link>
               </div>
-            ))}
+            ))
+            }
             ;
           </div>
         </div>

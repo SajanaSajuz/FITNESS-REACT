@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import {  useNavigate, useParams } from 'react-router-dom'
-import Navbar from '../Components/Navbar'
+import Navbar from './Navbar'
 import axios from 'axios'
 import './Trainerdetails.css'
 import { useDispatch, useSelector } from 'react-redux'

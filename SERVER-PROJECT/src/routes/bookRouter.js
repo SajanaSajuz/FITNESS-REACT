@@ -10,6 +10,7 @@ bookRouter.post("/booking", checkAuth, async (req, res) => {
       trainer_id: req.body.trainer_id,
       status: 0,
     };
+    
     const result = await bookModel(bookingdata).save();
     if (result) {
       res.status(201).json({

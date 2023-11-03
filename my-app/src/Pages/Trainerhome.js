@@ -2,7 +2,7 @@ import React from 'react'
 import Login from './Login'
 import '../Pages/Trainerhome.css'
 import '../css/trainer.css'
-import Navbar from '../Components/Navbar'
+import Navbar from './Navbar'
 import { Link } from 'react-router-dom'
 import Trainer from './Trainer'
 

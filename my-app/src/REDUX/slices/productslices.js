@@ -4,9 +4,9 @@ const initialState = {
   viewproduct: [],
   loading: false,
   error: false,
-  idproduct:[],
+  idproduct:{},
 };
-const viewproduct_url = "http://localhost:5000/user/user-productdetails";
+const viewproduct_url = "https://crossbody-backend.onrender.com/user/user-productdetails"; //backend run akathem datas kittum bcoz renderilk node push cheythond
 
 
 export const userproduct = createAsyncThunk("viewproduct", async () => {
@@ -15,7 +15,7 @@ export const userproduct = createAsyncThunk("viewproduct", async () => {
 });
 
 export const productSingleView = createAsyncThunk("idproduct",async (id)=>{
-  const response = await fetch(`http://localhost:5000/user/user-productdetails/${id}`)
+  const response = await fetch(`https://crossbody-backend.onrender.com/user/user-productdetails/${id}`)
   return response.json()
   })
 
@@ -42,6 +42,12 @@ const productslice = createSlice({
       //action.type
       state.loading = false;
       state.idproduct = action.payload.product_details;
+    });
+    builder.addCase(productSingleView.rejected, (state) => {
+      //action.type
+      state.loading = false;
+      state.error = true;
+    
     });
   },
 });

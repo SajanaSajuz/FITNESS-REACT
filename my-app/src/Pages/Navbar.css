@@ -139,6 +139,51 @@ nav ul li a {
     background-image: url('../Components/main.jpg');
     background-repeat: no-repeat;
 }
-    
-
+   
+/* 
+.dropdown {
+    float: right;
+    overflow: hidden;
+  }
+  
+  .dropdown .dropbtn {
+    font-size: 16px;  
+    border: none;
+    outline: none;
+    color: rgb(234, 227, 227);
+    padding: 14px 16px;
+    background-color: inherit;
+    font-family: inherit;
+    margin: 0;
+  }
+  
+  /* .navbar ,.link:hover, .dropdown:hover .dropbtn {
+    background-color: rgb(235, 224, 224);
+  } */
+  
+  /* .dropdown-content {
+    display: none;
+    position: relative;
+    background-color: #f9f9f9;
+    min-width: 100px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+  } */
+  
+  /* .dropdown-content,.link{
+    float: none;
+    color: rgb(22, 21, 21);
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+  }
+  
+  .dropdown-content .dropbtn:hover {
+    background-color: #ddd;
+  } */
+  
+  /* .dropbtn:hover .dropdown-content {
+    display: block;
+  }  */
 
